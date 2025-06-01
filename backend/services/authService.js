@@ -1,10 +1,14 @@
 const axios = require('axios');
-const qs = require('querystring');
 const dotenv = require('dotenv');
+const qs = require('querystring');
 dotenv.config();
-const { XERO_CLIENT_ID, XERO_CLIENT_SECRET, XERO_REDIRECT_URI } = process.env;
 
 
+const {
+  XERO_CLIENT_ID,
+  XERO_CLIENT_SECRET,
+  XERO_REDIRECT_URI
+} = process.env
 
 
 // Get the Xero authorization link
@@ -14,23 +18,24 @@ function getAuthUrl(state = '/xero/dashboard') {
     'profile',
     'email',
     'accounting.transactions',
-    'accounting.contacts',
-    'accounting.settings',
+    "accounting.settings",
+    'payroll.employees',
+    'files',
+    'files.read',
     'offline_access'
   ].join(' ');
 
   const authUrl = `https://login.xero.com/identity/connect/authorize?` +
-    `response_type=code&client_id=${XERO_CLIENT_ID}&redirect_uri=${XERO_REDIRECT_URI}` +
-    `&scope=${encodeURIComponent(scope)}&state=${encodeURIComponent(state)}`;
-
+    `response_type=code&client_id=${XERO_CLIENT_ID}` + 
+    `&redirect_uri=${XERO_REDIRECT_URI}` +
+    `&scope=${encodeURIComponent(scope)}` + 
+    `&state=${encodeURIComponent(state)}`;
   return authUrl;
 }
 
-
-
 // Use authorization code to exchange for Access Token + Obtain tenantId
 async function handleCallback(code, req) {
-  const tokenResponse = await axios.post(
+  const tokenUrl = await axios.post(
     'https://identity.xero.com/connect/token',
     qs.stringify({
       grant_type: 'authorization_code',
@@ -44,7 +49,15 @@ async function handleCallback(code, req) {
     }
   );
 
-  const { access_token, refresh_token, expires_in } = tokenResponse.data;
+  const { 
+    access_token, 
+    refresh_token, 
+    expires_in,
+    id_token,
+    token_type,
+    scope,
+    authentication_event_id
+  } = tokenUrl.data;
 
   const tenantRes = await axios.get('https://api.xero.com/connections', {
     headers: { Authorization: `Bearer ${access_token}` }
@@ -55,6 +68,11 @@ async function handleCallback(code, req) {
   const tokenSet = {
     access_token,
     refresh_token,
+    id_token,
+    token_type,
+    scope,
+    authentication_event_id,
+    expires_in,
     expires_at: Date.now() + expires_in * 1000,
     tenant_id: tenantId
   };
@@ -62,18 +80,6 @@ async function handleCallback(code, req) {
   // ✅ 保存进 session
   req.session.tokenSet = tokenSet;
   req.session.tenantId = tenantId;
-
-  await new Promise((resolve, reject) => {
-    req.session.save(err => {
-      if (err) {
-        console.error("❌ session save filed:", err);
-        return reject(err);
-      } else {
-        // console.log("✅ session save successful:", req.session.tokenSet);
-        resolve();
-      }
-    });
-  });
 }
 
 
@@ -81,13 +87,14 @@ async function handleCallback(code, req) {
 
 async function getValidToken(req) {
   const tokenData = req.session.tokenSet;
+  // console.log('session:', req.session);
 
   if (!tokenData?.access_token || !tokenData?.refresh_token) {
     throw new Error('❌ Token does not exist in session, please authorize first');
   }
 
   const now = Date.now();
-  const threshold = 2 * 60 * 1000; // Refresh 2 minutes early
+  const threshold = 120000; // Refresh 2 minutes early
   if (now < tokenData.expires_at - threshold) {
     return tokenData; // ✅ Token still valid
   }
@@ -134,8 +141,4 @@ module.exports = {
 console.log('🔎 Verifying credentials:', {
   client_id: XERO_CLIENT_ID,
   client_secret: XERO_CLIENT_SECRET?.slice(0, 4) + '***' + XERO_CLIENT_SECRET?.slice(-4)
-  
 });
-
-
-

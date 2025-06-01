@@ -1,17 +1,10 @@
 const { getValidToken } = require('./authService');
 const axios = require('axios');
+const xeroApiService = require('../services/xeroApiService')
 
 async function getAccounts(req) {
-  const { access_token, tenant_id } = await getValidToken(req);
-
-  const res = await axios.get('https://api.xero.com/api.xro/2.0/Accounts', {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-      'xero-tenant-id': tenant_id,
-      Accept: 'application/json'
-    }
-  });
-  return res.data.Accounts?.slice(0, 10) || [];
+  const accounts = await xeroApiService.getAccounts(req)
+  return accounts?.slice(0, 10) || [];
 }
 
 

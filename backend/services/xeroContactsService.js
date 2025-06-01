@@ -1,17 +1,10 @@
 const { getValidToken } = require('./authService'); // 拿 token
 const axios = require('axios');
+const xeroApiService = require('../services/xeroApiService')
 
 async function getContacts(req) {
-  const { access_token, tenant_id } = await getValidToken(req); 
-
-  const res = await axios.get('https://api.xero.com/api.xro/2.0/Contacts', {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-      'xero-tenant-id': tenant_id,
-      Accept: 'application/json'
-    }
-  });
-  return res.data.Accounts?.slice(0, 10) || [];
+  const contacts = await xeroApiService.getContacts(req)
+  return accounts?.slice(0, 10) || [];
 };
 
 // ✅ 创建联系人（保留实现接口）

@@ -1,9 +1,5 @@
 const { getPayments } = require('../services/xeroPaymentsService');
 
-function renderJsonList(data, key){
-    const list = Array.isArray(data) ? data : data?.[key] || [];
-    return `<pre>${JSON.stringify(list.slice(0, 10), null, 2)}</pre>`;
-  }
 
   exports.getPayments = async (req, res) => {
     try {

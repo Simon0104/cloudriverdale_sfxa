@@ -139,9 +139,9 @@ import FormAdvanced from "../pages/Forms/FormAdvanced/FormAdvanced";
 import Select2 from "../pages/Forms/Select2/Select2";
 
 //Tables
-import BasicTables from '../pages/Tables/BasicTables/BasicTables';
-import ListTables from '../pages/Tables/ListTables/ListTables';
-import ReactTable from "../pages/Tables/ReactTables";
+import BasicTables from '../pages/Data/Tables/BasicTables/BasicTables';
+import ListTables from '../pages/Data/Tables/ListTables/ListTables';
+import ReactTable from "../pages/Data/Tables/ReactTables";
 
 //Icon pages
 import RemixIcons from "../pages/Icons/RemixIcons/RemixIcons";
@@ -202,24 +202,24 @@ import Logout from "../pages/Authentication/Logout";
 import Register from "../pages/Authentication/Register";
 
 //Charts
-import LineCharts from "../pages/Charts/ApexCharts/LineCharts";
-import AreaCharts from "../pages/Charts/ApexCharts/AreaCharts";
-import ColumnCharts from "../pages/Charts/ApexCharts/ColumnCharts";
-import BarCharts from "../pages/Charts/ApexCharts/BarCharts";
-import MixedCharts from "../pages/Charts/ApexCharts/MixedCharts";
-import TimelineCharts from "../pages/Charts/ApexCharts/TimelineCharts";
-import CandlestickChart from "../pages/Charts/ApexCharts/CandlestickChart";
-import BoxplotCharts from "../pages/Charts/ApexCharts/BoxplotCharts";
-import BubbleChart from "../pages/Charts/ApexCharts/BubbleChart";
-import ScatterCharts from "../pages/Charts/ApexCharts/ScatterCharts";
-import HeatmapCharts from "../pages/Charts/ApexCharts/HeatmapCharts";
-import TreemapCharts from "../pages/Charts/ApexCharts/TreemapCharts";
-import PieCharts from "../pages/Charts/ApexCharts/PieCharts";
-import RadialbarCharts from "../pages/Charts/ApexCharts/RadialbarCharts";
-import RadarCharts from "../pages/Charts/ApexCharts/RadarCharts";
-import PolarCharts from "../pages/Charts/ApexCharts/PolarCharts";
-import ChartsJs from "../pages/Charts/ChartsJs/index";
-import Echarts from "../pages/Charts/ECharts/index";
+import LineCharts from "../pages/Data/Charts/ApexCharts/LineCharts";
+import AreaCharts from "../pages/Data/Charts/ApexCharts/AreaCharts";
+import ColumnCharts from "../pages/Data/Charts/ApexCharts/ColumnCharts";
+import BarCharts from "../pages/Data/Charts/ApexCharts/BarCharts";
+import MixedCharts from "../pages/Data/Charts/ApexCharts/MixedCharts";
+import TimelineCharts from "../pages/Data/Charts/ApexCharts/TimelineCharts";
+import CandlestickChart from "../pages/Data/Charts/ApexCharts/CandlestickChart";
+import BoxplotCharts from "../pages/Data/Charts/ApexCharts/BoxplotCharts";
+import BubbleChart from "../pages/Data/Charts/ApexCharts/BubbleChart";
+import ScatterCharts from "../pages/Data/Charts/ApexCharts/ScatterCharts";
+import HeatmapCharts from "../pages/Data/Charts/ApexCharts/HeatmapCharts";
+import TreemapCharts from "../pages/Data/Charts/ApexCharts/TreemapCharts";
+import PieCharts from "../pages/Data/Charts/ApexCharts/PieCharts";
+import RadialbarCharts from "../pages/Data/Charts/ApexCharts/RadialbarCharts";
+import RadarCharts from "../pages/Data/Charts/ApexCharts/RadarCharts";
+import PolarCharts from "../pages/Data/Charts/ApexCharts/PolarCharts";
+import ChartsJs from "../pages/Data/Charts/ChartsJs/index";
+import Echarts from "../pages/Data/Charts/ECharts/index";
 
 //Job pages
 import Statistics from "../pages/Jobs/Statistics";
@@ -246,11 +246,11 @@ import UserProfile from "../pages/Authentication/user-profile";
 
 import FileManager from "../pages/FileManager";
 import ToDoList from "../pages/ToDo";
-import RangeArea from "../pages/Charts/ApexCharts/RangeAreaCharts/Index";
-import FunnelChart from "../pages/Charts/ApexCharts/FunnelCharts/Index";
+import RangeArea from "../pages/Data/Charts/ApexCharts/RangeAreaCharts/Index";
+import FunnelChart from "../pages/Data/Charts/ApexCharts/FunnelCharts/Index";
 import UiLink from "../pages/BaseUi/UiLinks/UiLinks";
 import DashboardBlog from "../pages/DashboardBlog";
-import SlopeCharts from "../pages/Charts/ApexCharts/SlopeCharts";
+import SlopeCharts from "../pages/Data/Charts/ApexCharts/SlopeCharts";
 import BlogListView from "../pages/Pages/Blogs/ListView";
 import BlogGridView from "../pages/Pages/Blogs/GridView";
 import PageBlogOverview from "../pages/Pages/Blogs/Overview";

@@ -30,7 +30,14 @@ app.use(session({
   }
 }));
 
-
+app.get('/xero/session/debug', (req, res) => {
+  res.json({
+    cookies: req.cookies,
+    session: req.session,
+    tokenSet: req.session?.tokenSet || null
+  });
+});
+// http://localhost:8000/xero/session/debug
 
 const sequelize = require('./config/db'); //connect to database
 const asyncHandler = require('./utils/asyncHandler');

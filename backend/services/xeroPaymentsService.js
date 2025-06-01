@@ -1,17 +1,10 @@
 const { getValidToken } = require('./authService'); 
+const xeroApiService = require('../services/xeroApiService')
 const axios = require('axios');
 
 async function getPayments(req) {
-  const { access_token, tenant_id } = await getValidToken(req); 
-
-  const res = await axios.get('https://api.xero.com/api.xro/2.0/Payments', {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-      'xero-tenant-id': tenant_id,
-      Accept: 'application/json'
-    }
-  });
-  return res.data.Payments.slice(0, 10) || [];
+  const payments = await xeroApiService.getPayments(req)
+  return payments?.slice(0, 10) || [];
 };
 
 // ✅ 创建支付（保留实现接口）

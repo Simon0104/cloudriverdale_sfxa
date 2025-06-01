@@ -1,18 +1,10 @@
-const { getValidToken } = require('./authService'); // 拿 token
+const { getValidToken } = require('./authService'); 
+const xeroApiService = require('../services/xeroApiService')
 const axios = require('axios');
 
 async function getInvoices(req)  {
-  const { access_token, tenant_id } = await getValidToken(req);
-
-  const res = await axios.get('https://api.xero.com/api.xro/2.0/Invoices', {
-    headers: {
-      Authorization: `Bearer ${access_token}`,
-      'xero-tenant-id': tenant_id,
-      Accept: 'application/json'
-    }
-  });
-
-  return res.data.Invoices.slice(0, 10) || [];
+  const invoices = await xeroApiService.getInvoices(req)
+  return invoices?.slice(0, 10) || [];
 };
 
 // ✅ 创建发票（保留实现接口）
