@@ -13,7 +13,7 @@ async function createContacts(req, contactsData) {
 
   const res = await axios.post(
     'https://api.xero.com/api.xro/2.0/Contacts',
-    { Invoices: [contactsData] },
+    { Contacts: [contactsData] },
     {
       headers: {
         Authorization: `Bearer ${access_token}`,

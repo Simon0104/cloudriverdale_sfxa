@@ -13,7 +13,7 @@ async function createPayments (req, paymentsData) {
 
   const res = await axios.post(
     'https://api.xero.com/api.xro/2.0/Payments',
-    { Invoices: [paymentsData] },
+    { Payments: [paymentsData] },
     {
       headers: {
         Authorization: `Bearer ${access_token}`,
