@@ -4,7 +4,7 @@ const xeroApiService = require('../services/xeroApiService')
 
 async function getContacts(req) {
   const contacts = await xeroApiService.getContacts(req)
-  return accounts?.slice(0, 10) || [];
+  return contacts?.slice(0, 10) || [];
 };
 
 // ✅ 创建联系人（保留实现接口）

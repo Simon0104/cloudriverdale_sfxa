@@ -67,7 +67,7 @@ import { ticketsWidgets, ticketsTable } from "./supportTickets";
 // Pages
 import { gallery, pricing1, pricing2, pricing3, projects, documents, SearchGallery, news, video, swiper, team } from "./pagesData";
 
-import { jobApplication } from "./appsJobs";
+import { jobApplication } from "./appsCompanies";
 
 import country from "./country";
 import { headData, tasklist, AddTeamMember } from "./kanban";

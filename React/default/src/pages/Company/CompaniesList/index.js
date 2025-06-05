@@ -12,8 +12,8 @@ import {
 } from "reactstrap";
 import Flatpickr from "react-flatpickr";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
-import img6 from "../../../assets/images/companies/img-6.png";
-import { jobCompanies } from "../../../common/data/appsJobs";
+import img6 from "../../../assets/images/companies/cloudriverdale.png";
+import { jobCompanies } from "../../../common/data/appsCompanies";
 import Pagination from "../../../Components/Common/Pagination";
 const CompaniesList = () => {
   document.title = "Companies | Velzon - React Admin & Dashboard Template";
@@ -133,7 +133,7 @@ const CompaniesList = () => {
                             <span className="since">{item.since}</span>
                           </div>
                         </div>
-                        <div>
+                        {/* <div>
                           <button
                             type="button"
                             className="btn btn-soft-primary w-100 viewcompany-list"
@@ -141,7 +141,7 @@ const CompaniesList = () => {
                             <span className="vacancy">{item.vacancy}</span> Jobs
                             Available
                           </button>
-                        </div>
+                        </div> */}
                       </CardBody>
                     </Card>
                   </Col>
@@ -172,7 +172,7 @@ const CompaniesList = () => {
                   <div className="text-center">
                     <NavLink to="#!">
                       <h5 className="overview-companyname">
-                        Syntyce Solutions
+                        Could Riverdale
                       </h5>
                     </NavLink>
                     <p className="text-muted overview-industryType">
@@ -212,66 +212,24 @@ const CompaniesList = () => {
                   <h6 className="text-muted text-uppercase fw-semibold mb-3">
                     Information
                   </h6>
-                  <p className="text-muted mb-4 overview-companydesc">
-                    The IT department of NavLink company ensures that the
-                    network of computers within the organisation are
-                    well-connected and functioning properly. All the other
-                    departments within the company rely on them to ensure that
-                    their respective functions can go on seamlessly.
+                  <p className="text-muted mb-4">
+                    This module allows you to securely connect your accounting platform with various document services such as Google Drive, Dropbox, OneDrive, and more.
+                    You can import spreadsheets, invoices, receipts, or contracts to enhance financial automation and reporting.
                   </p>
+                  <ul className="text-muted">
+                    <li>📁 Connect shared folders from cloud services</li>
+                    <li>🔒 Ensure secure access with OAuth authorization</li>
+                    <li>📄 Auto-detect file types (PDF, DOCX, XLSX)</li>
+                    <li>🧾 Link documents to specific companies or transactions</li>
+                    <li>📊 Use uploaded documents in analytics & forecasting</li>
+                  </ul>
 
                   <div className="table-responsive table-card">
                     <Table className="table table-borderless mb-4">
-                      <tbody>
-                        <tr>
-                          <td className="fw-semibold">Industry Type</td>
-                          <td className="overview-industryType">
-                            Chemical Industries
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="fw-semibold">Location</td>
-                          <td className="overview-company_location">
-                            Damascus, Syria
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="fw-semibold">Employee</td>
-                          <td className="overview-employee">10-50</td>
-                        </tr>
-                        <tr>
-                          <td className="fw-semibold">Vacancy</td>
-                          <td className="overview-vacancy">23</td>
-                        </tr>
-                        <tr>
-                          <td className="fw-semibold">Rating</td>
-                          <td>
-                            <span className="overview-rating">4.8</span>{" "}
-                            <i className="ri-star-fill text-warning align-bottom"></i>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="fw-semibold">Website</td>
-                          <td>
-                            <NavLink
-                              to=""
-                              className="link-primary text-decoration-underline overview-website"
-                            >
-                              www.syntycesolution.com
-                            </NavLink>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="fw-semibold">Contact Email</td>
-                          <td className="overview-email">
-                            info@syntycesolution.com
-                          </td>
-                        </tr>
-                        <tr>
-                          <td className="fw-semibold">Since</td>
-                          <td className="overview-since">1995</td>
-                        </tr>
-                      </tbody>
+                    <NavLink to="/connect/acc-sw" className="btn btn-primary w-100">
+                        Start Connecting Documents
+                        <i className="ri-arrow-right-line align-bottom ms-1"></i>
+                      </NavLink>
                     </Table>
                   </div>
 
