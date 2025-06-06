@@ -128,30 +128,12 @@ import PolarCharts from "../pages/Data/Charts/ApexCharts/PolarCharts";
 import ChartsJs from "../pages/Data/Charts/ChartsJs/index";
 import Echarts from "../pages/Data/Charts/ECharts/index";
 
-//Job pages
-// import Statistics from "../pages/Jobs/Statistics";
-// import JobList from "../pages/Jobs/JobList/List";
-// import JobGrid from "../pages/Jobs/JobList/Grid";
-// import JobOverview from "../pages/Jobs/JobList/Overview";
-// import CandidateList from "../pages/Jobs/CandidateList/ListView";
-// import CandidateGrid from "../pages/Jobs/CandidateList/GridView";
-// import NewJobs from "../pages/Jobs/NewJob";
-// import JobCategories from "../pages/Jobs/JobCategories";
-// import Application from "../pages/Jobs/Application";
-import CompaniesList from "../pages/Company/CompaniesList";
-// import Documents from "../pages/Connect/Documents";
+
+import AccSwPage from "../pages/Company/CompaniesList/AccSwPage";
 
 
 import FileManager from "../pages/FileManager";
-// import ToDoList from "../pages/ToDo";
-// import RangeArea from "../pages/Data/Charts/ApexCharts/RangeAreaCharts/Index";
-// import FunnelChart from "../pages/Data/Charts/ApexCharts/FunnelCharts/Index";
-// import UiLink from "../pages/BaseUi/UiLinks/UiLinks";
-// import DashboardBlog from "../pages/DashboardBlog";
-// import SlopeCharts from "../pages/Data/Charts/ApexCharts/SlopeCharts";
-// import BlogListView from "../pages/Pages/Blogs/ListView";
-// import BlogGridView from "../pages/Pages/Blogs/GridView";
-// import PageBlogOverview from "../pages/Pages/Blogs/Overview";
+
 
 const authProtectedRoutes = [
   { path: "/dashboard-analytics", component: <DashboardAnalytics /> },
@@ -179,28 +161,6 @@ const authProtectedRoutes = [
   // { path: "/apps-invoices-details", component: <InvoiceDetails /> },
   // { path: "/apps-invoices-create", component: <InvoiceCreate /> },
 
-  // //Supports Tickets
-  // { path: "/apps-tickets-list", component: <ListView /> },
-  // { path: "/apps-tickets-details", component: <TicketsDetails /> },
-
-  // //transactions
-  // { path: "/apps-crypto-transactions", component: <Transactions /> },
-  // { path: "/apps-crypto-buy-sell", component: <BuySell /> },
-  // { path: "/apps-crypto-orders", component: <CryproOrder /> },
-  // { path: "/apps-crypto-wallet", component: <MyWallet /> },
-  // { path: "/apps-crypto-ico", component: <ICOList /> },
-  // { path: "/apps-crypto-kyc", component: <KYCVerification /> },
-
-  // // NFT Marketplace
-  // { path: "/apps-nft-marketplace", component: <Marketplace /> },
-  // { path: "/apps-nft-collections", component: <Collections /> },
-  // { path: "/apps-nft-create", component: <CreateNFT /> },
-  // { path: "/apps-nft-creators", component: <Creators /> },
-  // { path: "/apps-nft-explore", component: <ExploreNow /> },
-  // { path: "/apps-nft-item-details", component: <ItemDetails /> },
-  // { path: "/apps-nft-auction", component: <LiveAuction /> },
-  // { path: "/apps-nft-ranking", component: <Ranking /> },
-  // { path: "/apps-nft-wallet", component: <WalletConnect /> },
 
   // //charts
   // { path: "/charts-apex-line", component: <LineCharts /> },
@@ -247,16 +207,6 @@ const authProtectedRoutes = [
   { path: "/data/tables/listjs", component: <ListTables /> },
   { path: "/data/tables/react", component: <ReactTable /> },
 
-  // //Icons
-  // { path: "/icons-remix", component: <RemixIcons /> },
-  // { path: "/icons-boxicons", component: <BoxIcons /> },
-  // { path: "/icons-materialdesign", component: <MaterialDesign /> },
-  // { path: "/icons-feather", component: <FeatherIcons /> },
-  // { path: "/icons-lineawesome", component: <LineAwesomeIcons /> },
-  // { path: "/icons-crypto", component: <CryptoIcons /> },
-
-  // //Maps
-  // { path: "/maps-google", component: <GoogleMaps /> },
 
 
   //Job pages
@@ -268,7 +218,7 @@ const authProtectedRoutes = [
   // { path: "/apps-job-candidate-grid", component: <CandidateGrid /> },
   // { path: "/apps-job-application", component: <Application /> },
   // { path: "/apps-job-new", component: <NewJobs /> },
-  { path: "/apps-job-companies-lists", component: <CompaniesList /> },
+  { path: "/apps-job-companies-lists", component: <AccSwPage /> },
   // { path: "/connect", component: <Documents />},
   // { path: "/apps-job-categories", component: <JobCategories /> },
 

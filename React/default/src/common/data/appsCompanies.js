@@ -24,15 +24,10 @@ import Avatar10 from "../../assets/images/users/avatar-10.jpg";
 
 import slack from "../../assets/images/brands/slack.png";
 import mail_chimp from "../../assets/images/brands/mail_chimp.png";
-// import dropbox from "../../assets/images/brands/dropbox.png";
+import dropbox from "../../assets/images/brands/dropbox.png";
 import bitBucket from "../../assets/images/brands/bitbucket.png";
 import dribble from "../../assets/images/brands/dribbble.png";
 
-import gdrive from '../../assets/images/docbrands/googledrive.png';
-import oneDrive from '../../assets/images/docbrands/onedrive.png';
-import dropbox from '../../assets/images/docbrands/dropbox.png';
-import sheets from '../../assets/images/docbrands/googlesheets.png';
-import docs from '../../assets/images/docbrands/googledoc.png';
 
 
 const jobWidgets = [
@@ -803,7 +798,6 @@ const jobCompanies = [
       "QuickBooks simplifies invoice processing and payment tracking for businesses of all sizes, helping them manage their finances with ease.",
     location: "California, USA",
     employee: "500-1000",
-    rating: "4.7",
     website: "www.quickbooks.com",
     email: "support@quickbooks.com",
     since: "1983",
@@ -818,10 +812,10 @@ const jobCompanies = [
       "Xero provides cloud-based accounting software for small to medium-sized businesses, allowing real-time financial collaboration.",
     location: "Wellington, New Zealand",
     employee: "1000+",
-    rating: "4.8",
     website: "www.xero.com",
     email: "info@xero.com",
     since: "2006",
+    link: "www.google.com"
   },
   {
     id: "3",
@@ -833,7 +827,6 @@ const jobCompanies = [
       "Zoho offers a suite of online productivity tools and SaaS applications for businesses, including Zoho Books for accounting.",
     location: "Chennai, India",
     employee: "7000+",
-    rating: "4.6",
     website: "www.zoho.com",
     email: "contact@zoho.com",
     since: "1996",
@@ -848,85 +841,9 @@ const jobCompanies = [
       "Sage delivers software and services for accounting, payroll, and HR to small and medium businesses around the world.",
     location: "Newcastle, UK",
     employee: "13000+",
-    rating: "4.5",
     website: "www.sage.com",
     email: "help@sage.com",
     since: "1981",
-  },
-  {
-    id: "5",
-    image_src: gdrive,
-    lable: "Google Drive",
-    industry_type: "Cloud Storage",
-    vacancy: "50",
-    company_info:
-      "Access and sync your financial and document files securely across devices with Google Drive integration.",
-    location: "California, USA",
-    employee: "1000+",
-    rating: "4.8",
-    website: "www.google.com/drive",
-    email: "support@google.com",
-    since: "2012",
-  },
-  {
-    id: "6",
-    image_src: oneDrive,
-    lable: "OneDrive",
-    industry_type: "Cloud Sync",
-    vacancy: "30",
-    company_info:
-      "Microsoft OneDrive helps you manage accounting files across departments and ensures seamless file sharing.",
-    location: "Redmond, USA",
-    employee: "800+",
-    rating: "4.6",
-    website: "www.onedrive.com",
-    email: "contact@onedrive.com",
-    since: "2014",
-  },
-  {
-    id: "7",
-    image_src: dropbox,
-    lable: "Dropbox",
-    industry_type: "Team Sharing",
-    vacancy: "22",
-    company_info:
-      "Dropbox integrates easily with financial teams to provide document versioning, backup, and secure sharing.",
-    location: "San Francisco, USA",
-    employee: "1200+",
-    rating: "4.5",
-    website: "www.dropbox.com",
-    email: "help@dropbox.com",
-    since: "2008",
-  },
-  {
-    id: "8",
-    image_src: sheets,
-    lable: "Google Sheets",
-    industry_type: "Spreadsheet",
-    vacancy: "38",
-    company_info:
-      "Use Google Sheets for real-time collaboration on budgeting, planning, and other financial data work.",
-    location: "Online",
-    employee: "N/A",
-    rating: "4.9",
-    website: "www.google.com/sheets",
-    email: "support@google.com",
-    since: "2013",
-  },
-  {
-    id: "9",
-    image_src: docs,
-    lable: "Google Docs",
-    industry_type: "Document Editor",
-    vacancy: "26",
-    company_info:
-      "Sync business proposals, contracts and narratives through Google Docs with team editing and access control.",
-    location: "Online",
-    employee: "N/A",
-    rating: "4.7",
-    website: "www.google.com/docs",
-    email: "support@google.com",
-    since: "2013",
   },
 ];
 export {

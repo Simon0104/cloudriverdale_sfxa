@@ -1,159 +1,122 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import {
-  Card,
-  CardBody,
-  Col,
-  Container,
-  Form,
-  Input,
-  Row,
-  Table,
-} from "reactstrap";
+import {Card, CardBody, Col, Container, Form, Input, Row, Table} from "reactstrap";
 import Flatpickr from "react-flatpickr";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
-import img6 from "../../../assets/images/companies/cloudriverdale.png";
+import cloudriverdale from "../../../assets/images/companies/cloudriverdale.png";
 import { jobCompanies } from "../../../common/data/appsCompanies";
+import {jobDocuments} from "../../../common/data/appsDocuments";
 import Pagination from "../../../Components/Common/Pagination";
-const CompaniesList = () => {
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+const AccSwPage = () => {
   document.title = "Companies | Velzon - React Admin & Dashboard Template";
 
   const [companiesList, setCompaniesList] = useState();
+  const [documentList, setDocumentList] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const isConnected = query.get("connected") === "true";
 
-  //pagination
-  const perPageData = 16;
-  const indexOfLast = currentPage * perPageData;
-  const indexOfFirst = indexOfLast - perPageData;
-  const currentdata = useMemo(() => jobCompanies?.slice(indexOfFirst, indexOfLast), [indexOfFirst, indexOfLast])
 
   useEffect(() => {
-    setCompaniesList(currentdata)
-  }, [currentdata]);
+    setCompaniesList(jobCompanies);
+    setDocumentList(jobDocuments)
+  }, []);
+
+
+  const handleXeroAuth = async() =>{
+    try {
+      const res = await axios.get("/xero/auth-url",{
+        withCredentials: true
+      });
+      const authUrl = res.data?.authUrl;
+      if(authUrl){
+        window.location.href = authUrl;
+      }
+    }catch(err){
+      console.log("❌ 获取 Xero 授权链接失败:", err);
+    }
+  }
 
   return (
     <React.Fragment>
       <div className="page-content">
         <Container fluid className="container-fluid">
-          <BreadCrumb title="Companies" pageTitle="Job" />
+          <BreadCrumb title="Companies/documents" pageTitle="Acc/SW" />
           <Row>
             <Col xxl={9}>
-              <Card>
-                <CardBody>
-                  <Form>
-                    <Row className="g-3">
-                      <Col xxl={5} sm={6}>
-                        <div className="search-box">
-                          <Input
-                            type="text"
-                            className="form-control search bg-light border-light"
-                            id="searchCompany"
-                            placeholder="Search for company, industry type..."
-                          />
-                          <i className="ri-search-line search-icon"></i>
-                        </div>
-                      </Col>
-
-                      <Col xxl={3} sm={6}>
-                        <Flatpickr
-                          className="form-control"
-                          id="datepicker-publish-input"
-                          placeholder="Select a date"
-                          options={{
-                            altInput: true,
-                            altFormat: "F j, Y",
-                            mode: "multiple",
-                            dateFormat: "d.m.y",
-                          }}
-                        />
-                      </Col>
-
-                      <Col xxl={2} sm={4}>
-                        <div className="input-light">
-                          <select
-                            className="form-control"
-                            name="choices-single-default"
-                            id="idType"
-                          >
-                            <option value="all" defaultValue>
-                              All
-                            </option>
-                            <option value="Full Time">Full Time</option>
-                            <option value="Part Time">Part Time</option>
-                            <option value="Intership">Intership</option>
-                            <option value="Freelance">Freelance</option>
-                          </select>
-                        </div>
-                      </Col>
-
-                      <Col xxl={2} sm={4}>
-                        <button
-                          type="button"
-                          className="btn btn-primary w-100"
-                        >
-                          <i className="ri-equalizer-fill me-1 align-bottom"></i>{" "}
-                          Filters
-                        </button>
-                      </Col>
-                    </Row>
-                  </Form>
-                </CardBody>
-              </Card>
+            <h5 className="mb-3 mt-5">Seamless integreated to your accounting tool</h5>
 
               <Row className="job-list-row" id="companies-list">
                 {(companiesList || []).map((item, key) => (
                   <Col xxl={3} md={6} key={key}>
+                    {/* <Link onClick = {handleXeroAuth}> */}
+                    <div onClick={handleXeroAuth} className="text-reset text-decoration-none cursor-pointer">
+                      <Card className="card AccSwPage-card h-100">
+                        <CardBody>
+                          <div className="avatar-sm mx-auto">
+                            <div className="avatar-title bg-light rounded">
+                              <img
+                                src={item.image_src}
+                                alt=""
+                                className="avatar-xxs companyLogo-img"
+                              />
+                            </div>
+                          </div>
+                          <div className="text-center">
+                            {/* <Link to="#"> */}
+                              <h5 className="mt-3 company-name">{item.lable}</h5>
+                            {/* </Link> */}
+                            <div className="d-none company-desc">
+                              {item.company_info}
+                            </div>
+                            <p className="text-muted industry-type">
+                              {item.industry_type}
+                            </p>
+                            <span className="stretched-link"></span>
+
+                          </div>
+                        </CardBody>
+                      </Card>
+                      </div>
+                  {/* </Link> */}
+                  </Col>
+                ))}
+              </Row>
+
+
+
+              <h5 className="mb-3 mt-5">Import documents from shared folders</h5>
+              <Row className="job-list-row" id="documents-list">
+                {(documentList || []).map((item, key) => (
+                  <Col xxl={3} md={6}  key={key}>
                     <Card className="card companiesList-card">
                       <CardBody>
-                        <div className="avatar-sm mx-auto">
+                        <div className="avatar-sm mx-auto mb-2">
                           <div className="avatar-title bg-light rounded">
                             <img
                               src={item.image_src}
                               alt=""
-                              className="avatar-xxs companyLogo-img"
+                              className="avatar-xs companyLogo-img"
                             />
                           </div>
                         </div>
                         <div className="text-center">
-                          <Link to="#">
-                            <h5 className="mt-3 company-name">{item.lable}</h5>
-                          </Link>
-                          <div className="d-none company-desc">
-                            {item.company_info}
-                          </div>
-                          <p className="text-muted industry-type">
-                            {item.industry_type}
-                          </p>
-                          <div className="d-none">
-                            <span className="employee">{item.employee}</span>
-                            <span className="location">{item.location}</span>
-                            <span className="rating">{item.rating}</span>
-                            <span className="website">{item.website}</span>
-                            <span className="email">{item.email}</span>
-                            <span className="since">{item.since}</span>
-                          </div>
+                          <h5 className="mt-3">{item.lable}</h5>
+                          <p className="text-muted small mb-0">{item.industry_type}</p>
                         </div>
-                        {/* <div>
-                          <button
-                            type="button"
-                            className="btn btn-soft-primary w-100 viewcompany-list"
-                          >
-                            <span className="vacancy">{item.vacancy}</span> Jobs
-                            Available
-                          </button>
-                        </div> */}
                       </CardBody>
                     </Card>
                   </Col>
                 ))}
               </Row>
 
-              <Pagination
-                perPageData={perPageData}
-                data={jobCompanies}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                className="g-0 justify-content-end mb-4" />
+
+
 
             </Col>
             <Col xxl={3}>
@@ -162,7 +125,7 @@ const CompaniesList = () => {
                   <div className="avatar-lg mx-auto mb-3">
                     <div className="avatar-title bg-light rounded">
                       <img
-                        src={img6}
+                        src={cloudriverdale}
                         alt=""
                         className="avatar-sm company-logo"
                       />
@@ -294,4 +257,6 @@ const CompaniesList = () => {
   );
 };
 
-export default CompaniesList;
+
+
+export default AccSwPage;
