@@ -35,8 +35,6 @@ const AccSwPage = () => {
         params: { state: '/apps-job-companies-lists' },
         withCredentials: true
       });
-      console.log("📦 后端返回 res.data:", res.data);
-      console.log("🌐 axios 原始响应对象 res:", res);
       const redirectUrl = res?.url;
       if (redirectUrl) {
         window.location.href = redirectUrl;
