@@ -791,7 +791,7 @@ const jobCompanies = [
   {
     id: "1",
     image_src: cimg3,
-    lable: "QuickBooks",
+    label: "QuickBooks",
     industry_type: "Accounting Software",
     vacancy: "97",
     company_info:
@@ -805,7 +805,7 @@ const jobCompanies = [
   {
     id: "2",
     image_src: cimg4,
-    lable: "Xero",
+    label: "Xero",
     industry_type: "Cloud Accounting",
     vacancy: "75",
     company_info:
@@ -820,7 +820,7 @@ const jobCompanies = [
   {
     id: "3",
     image_src: cimg1,
-    lable: "Zoho",
+    label: "Zoho",
     industry_type: "Enterprise Software",
     vacancy: "120",
     company_info:

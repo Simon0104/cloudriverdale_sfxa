@@ -1,41 +1,22 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const {getAuthUrl, handleCallback} = require('../services/authService')
 
 
-exports.login = async(req, res) =>{
-    const{ email, password } = req.body;
-    try{
-        const user = await User.findOne({ where: { email}});
-        if(!user){
-            return res.status(401).json({ message: 'user doesnt exeit' });
-        }
-        const isMacth = await bcrypt.compare(password, user.password);
-        if(!isMacth){
-            return res.status(401).json({ message: 'password is incorrect' });
-        }
+exports.getAuthUrl = (req, res) => {
+    const state = req.query.state || '/';
+    const url = getAuthUrl(state); // 👈 确保这个函数有返回值！
+    console.log('✅ 生成授权链接:', url);
+    res.json({ url });             // ✅ 关键！必须用 res.json() 包起来！
+  };
 
-        const token = jwt.sign(
-            { userId: user.id},
-            process.env.JWT_SECRET,
-            { expiresIn: '1h' }
-        )
-
-        return res.json({ token, user});
-    }catch(err){
-        return res.status(500).json({ error: err.message });
+exports.handleCallback = async (req, res) => {
+    try {
+      const { code } = req.query;
+      await handleCallback(code, req);
+      res.redirect('/dashboard'); // 成功后跳转你想去的页面
+    } catch (err) {
+      console.error('❌ Callback failed:', err.message);
+      res.status(500).send('OAuth callback failed');
     }
-};
+  };
+  
 
-exports.register = async (req, res) => {
-    const{ email, password} = req.body;
-    try{
-        const passwordHash = await bcrypt.hash(password, 10);
-        // User.create() is a Sequelize API used to insert data into the database.
-        const user = await User.create({ email, passwordHash});
-        res.status(201).json({ message: 'User created', user });
-    }catch(err){
-        res.status(400).json({ error: err.message });
-    }
-    
-}

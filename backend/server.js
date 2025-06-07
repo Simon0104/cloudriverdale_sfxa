@@ -49,6 +49,7 @@ const contactsRoutes = require('./routes/contactsRoutes');
 const invoiceRoutes = require('./routes/invoiceRoutes');
 const paymentsRoutes = require('./routes/paymentsRoutes');
 const authRoutes = require('./routes/authRoutes');
+const xeroRoutes = require('./routes/xeroRoutes')
 
 
 
@@ -60,6 +61,7 @@ app.use('/xero/invoices', invoiceRoutes);
 app.use('/xero/payments', paymentsRoutes);
 app.use('/xero', statusRoutes);  
 app.use('/xero', authRoutes);  
+app.use(xeroRoutes);
 
 const PORT = process.env.PORT || 8000;
 sequelize.sync().then(() => {

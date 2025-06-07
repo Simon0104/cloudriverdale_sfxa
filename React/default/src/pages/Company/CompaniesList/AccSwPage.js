@@ -1,3 +1,4 @@
+// React/default/src/pages/Company/CompaniesList/AccSwPage.js
 import React, { useState, useMemo, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {Card, CardBody, Col, Container, Form, Input, Row, Table} from "reactstrap";
@@ -28,19 +29,26 @@ const AccSwPage = () => {
   }, []);
 
 
-  const handleXeroAuth = async() =>{
+  const handleXeroAuth = async () => {
     try {
-      const res = await axios.get("/xero/auth-url",{
+      const res = await axios.get('http://localhost:8000/xero/auth/url', {
+        params: { state: '/apps-job-companies-lists' },
         withCredentials: true
       });
-      const authUrl = res.data?.authUrl;
-      if(authUrl){
-        window.location.href = authUrl;
+      console.log("📦 后端返回 res.data:", res.data);
+      console.log("🌐 axios 原始响应对象 res:", res);
+      const redirectUrl = res?.url;
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      } else {
+        console.error('❌ res.data.url 不存在:', res);
       }
-    }catch(err){
-      console.log("❌ 获取 Xero 授权链接失败:", err);
+    } catch (err) {
+      console.error('❌ Failed to get Xero auth URL:', err.message);
     }
-  }
+  };
+  
+  
 
   return (
     <React.Fragment>
@@ -55,7 +63,8 @@ const AccSwPage = () => {
                 {(companiesList || []).map((item, key) => (
                   <Col xxl={3} md={6} key={key}>
                     {/* <Link onClick = {handleXeroAuth}> */}
-                    <div onClick={handleXeroAuth} className="text-reset text-decoration-none cursor-pointer">
+                    <div onClick = {item.label == 'Xero' ? handleXeroAuth : undefined} 
+                    className="text-reset text-decoration-none cursor-pointer">
                       <Card className="card AccSwPage-card h-100">
                         <CardBody>
                           <div className="avatar-sm mx-auto">

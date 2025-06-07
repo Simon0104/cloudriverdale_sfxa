@@ -1,5 +1,6 @@
 const { getValidToken } = require('./authService'); 
 const xeroApiService = require('../services/xeroApiService')
+const requireXeroAuth = require('../middlewares/authMiddleware');
 const axios = require('axios');
 
 async function getInvoices(req)  {

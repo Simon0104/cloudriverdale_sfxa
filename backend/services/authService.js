@@ -12,7 +12,7 @@ const {
 
 
 // Get the Xero authorization link
-function getAuthUrl(state = '/xero/dashboard') {
+function getAuthUrl(state = '/') {
   const scope = [
     'openid',
     'profile',

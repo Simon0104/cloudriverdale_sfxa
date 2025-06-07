@@ -140,12 +140,6 @@ const authProtectedRoutes = [
   { path: "/dashboard-crm", component: <DashboardCrm /> },
   { path: "/dashboard", component: <DashboardEcommerce /> },
   { path: "/index", component: <DashboardEcommerce /> },
-  // { path: "/dashboard-crypto", component: <DashboardCrypto /> },
-  // { path: "/dashboard-projects", component: <DashboardProject /> },
-  // { path: "/dashboard-nft", component: <DashboardNFT /> },
-  // { path: "/dashboard-job", component: <DashboardJob /> },
-  // { path: "/dashboard-blog", component: <DashboardBlog /> },
-
 
   { path: "/apps-file-manager", component: <FileManager /> },
   // { path: "/apps-todo", component: <ToDoList /> },
