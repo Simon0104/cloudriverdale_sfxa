@@ -71,7 +71,6 @@ const BasicTables = () => {
                                     <p className="text-muted">Use <code>Table</code> attribute to show bootstrap-based default table.</p>
                                   
                                   
-                                  
                                     <div className="live-preview">
                                         <div className="table-responsive">
                                             <Table className="align-middle table-nowrap mb-0">
@@ -81,7 +80,6 @@ const BasicTables = () => {
                                                       <th scope="col">Type</th>
                                                       <th scope="col">Code</th>
                                                       <th scope="col">Status</th>
-                                                      <th scope="col">details</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -91,7 +89,6 @@ const BasicTables = () => {
                                                     <td>{acc.Type}</td>
                                                     <td>{acc.Code}</td>
                                                     <td>{acc.Status}</td>
-                                                    <td><Link to="#">查看详情</Link></td>
                                                   </tr>
                                                 ))}
                                                 </tbody>
