@@ -9,7 +9,7 @@ const jobDocuments = [
     {
       id: "1",
       image_src: gdrive,
-      lable: "Google Drive",
+      label: "Google Drive",
       industry_type: "Cloud Storage",
       vacancy: "50",
       company_info:
@@ -23,7 +23,7 @@ const jobDocuments = [
     {
       id: "2",
       image_src: oneDrive,
-      lable: "OneDrive",
+      label: "OneDrive",
       industry_type: "Cloud Sync",
       vacancy: "30",
       company_info:
@@ -37,7 +37,7 @@ const jobDocuments = [
     {
       id: "3",
       image_src: dropbox,
-      lable: "Dropbox",
+      label: "Dropbox",
       industry_type: "Team Sharing",
       vacancy: "22",
       company_info:
@@ -51,7 +51,7 @@ const jobDocuments = [
     {
       id: "4",
       image_src: sheets,
-      lable: "Google Sheets",
+      label: "Google Sheets",
       industry_type: "Spreadsheet",
       vacancy: "38",
       company_info:
@@ -65,7 +65,7 @@ const jobDocuments = [
     {
       id: "5",
       image_src: docs,
-      lable: "Google Docs",
+      label: "Google Docs",
       industry_type: "Document Editor",
       vacancy: "26",
       company_info:

@@ -45,11 +45,11 @@ const BasicTables = () => {
           const res = await axios.get('http://localhost:8000/xero/accounts', {
             withCredentials: true
           });
-          console.log("📦 原始数据结构:", res);
+          console.log("📦 Raw data structure:", res);
           const arr = Array.isArray(res) ? res : Object.values(res);
           setAccounts(arr);
         } catch (err) {
-          console.error('❌ 获取账户失败:', err.message);
+          console.error('❌ Failed to get the account:', err.message);
         }
       }
     
@@ -66,9 +66,11 @@ const BasicTables = () => {
                     <Row>
                         <Col xl={6}>
                             <Card>
-                                <PreviewCardHeader title="Default Tables" />
+                                <PreviewCardHeader title="Accounts Tables" />
                                 <CardBody>
-                                    <p className="text-muted">Use <code>Table</code> attribute to show bootstrap-based default table.</p>
+                                    <p className="text-muted">
+                                    Use the <code>Table</code> component to display account information from Xero.</p>
+
                                   
                                   
                                     <div className="live-preview">

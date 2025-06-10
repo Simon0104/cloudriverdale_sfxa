@@ -39,12 +39,14 @@ const AccSwPage = () => {
       if (redirectUrl) {
         window.location.href = redirectUrl;
       } else {
-        console.error('❌ res.data.url 不存在:', res);
+        console.error('❌ res.data.url:', res);
       }
     } catch (err) {
       console.error('❌ Failed to get Xero auth URL:', err.message);
     }
   };
+
+  const [selectCompany, setSelectCompany] = useState(null);
   
   
 
@@ -60,7 +62,6 @@ const AccSwPage = () => {
               <Row className="job-list-row" id="companies-list">
                 {(companiesList || []).map((item, key) => (
                   <Col xxl={3} md={6} key={key}>
-                    {/* <Link onClick = {handleXeroAuth}> */}
                     <div onClick = {item.label == 'Xero' ? handleXeroAuth : undefined} 
                     className="text-reset text-decoration-none cursor-pointer">
                       <Card className="card AccSwPage-card h-100">
@@ -75,9 +76,7 @@ const AccSwPage = () => {
                             </div>
                           </div>
                           <div className="text-center">
-                            {/* <Link to="#"> */}
-                              <h5 className="mt-3 company-name">{item.lable}</h5>
-                            {/* </Link> */}
+                              <h5 className="mt-3 company-name">{item.label}</h5>
                             <div className="d-none company-desc">
                               {item.company_info}
                             </div>
@@ -98,6 +97,7 @@ const AccSwPage = () => {
 
 
               <h5 className="mb-3 mt-5">Import documents from shared folders</h5>
+
               <Row className="job-list-row" id="documents-list">
                 {(documentList || []).map((item, key) => (
                   <Col xxl={3} md={6}  key={key}>
@@ -113,7 +113,7 @@ const AccSwPage = () => {
                           </div>
                         </div>
                         <div className="text-center">
-                          <h5 className="mt-3">{item.lable}</h5>
+                          <h5 className="mt-3">{item.label}</h5>
                           <p className="text-muted small mb-0">{item.industry_type}</p>
                         </div>
                       </CardBody>
@@ -121,11 +121,9 @@ const AccSwPage = () => {
                   </Col>
                 ))}
               </Row>
-
-
-
-
             </Col>
+
+
             <Col xxl={3}>
               <Card id="company-overview">
                 <CardBody>

@@ -834,7 +834,7 @@ const jobCompanies = [
   {
     id: "4",
     image_src: cimg5,
-    lable: "Sage",
+    label: "Sage",
     industry_type: "Accounting & Payroll",
     vacancy: "65",
     company_info:

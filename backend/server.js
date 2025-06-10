@@ -8,6 +8,7 @@ const app = express();
 const statusRoutes = require("./routes/index");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+const cashflowRoutes = require('./routes/cashflowRoutes');
 
 app.use(cors({
   origin: "http://localhost:3000", // ✅ frontend
@@ -51,6 +52,8 @@ const paymentsRoutes = require('./routes/paymentsRoutes');
 const authRoutes = require('./routes/authRoutes');
 const xeroRoutes = require('./routes/xeroRoutes')
 
+// cashflow
+app.use('/api/cashflow', cashflowRoutes);
 
 
 // 全部挂载在 /xero 下
@@ -63,14 +66,10 @@ app.use('/xero', statusRoutes);
 app.use('/xero', authRoutes);  
 app.use(xeroRoutes);
 
-const PORT = process.env.PORT || 8000;
-sequelize.sync().then(() => {
-  console.log('✅ Database synced');
-  app.listen(PORT, () => {
-    console.log(`✅ Server running at http://localhost:${PORT}`);
-    console.log("✅ Session cookie config:", app.get('trust proxy'), session.Session);
-  });
+app.listen(8000, () => {
+  console.log('✅ Server running on port 8000');
 });
+
 
 app.use(errorHandler);
 
