@@ -112,7 +112,7 @@ const BasicTables = () => {
                             </Card>
                         </Col>
 
-
+{/* 
                         <Col xl={6} >
                             <Card>
                                 <PreviewCardHeader title="Striped Rows" />
@@ -172,10 +172,10 @@ const BasicTables = () => {
                                     </div>
                                 </CardBody>
                             </Card>
-                        </Col>
+                        </Col> */}
                     </Row>
                     <Row>
-                        <Col xl={12}>
+                        {/* <Col xl={12}>
                             <Card>
                                 <PreviewCardHeader title="Striped Columns" />
                                 <CardBody>
@@ -277,11 +277,11 @@ const BasicTables = () => {
                                     </div>
                                 </CardBody>
                             </Card>
-                        </Col>
+                        </Col> */}
                     </Row>
                     <Row>
                         <Col lg={12}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Tables Colors" />
                                 <CardBody>
                                     <p className="text-muted">Use <code>table-dark</code> class to set dark color table body and <code>table-success</code> class to set success color table body respectively.
@@ -409,14 +409,14 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
 
                     </Row>
 
                     <Row>
                         <Col lg={12}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Hoverable Rows" />
 
                                 <CardBody>
@@ -575,14 +575,14 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
                     </Row>
 
                     <Row>
                         <Col xl={12}>
                             <Card>
-                                <PreviewCardHeader title="Card Tables" />
+                                {/* <PreviewCardHeader title="Card Tables" />
                                 <CardBody>
                                     <p className="text-muted mb-4">Use <code>table-card</code> class to show card-based table within a &lt;tbody&gt;.</p>
                                     <div className="live-preview">
@@ -680,14 +680,14 @@ const BasicTables = () => {
                                             </code>
                                         </pre>
                                     </div>
-                                </CardBody>
+                                </CardBody> */}
                             </Card>
                         </Col>
                     </Row>
 
                     <Row>
                         <Col xl={6}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Active Tables" />
                                 <CardBody>
                                     <p className="text-muted">Use <code>table-active</code> class to highlight a table row or cell.</p>
@@ -773,13 +773,13 @@ const BasicTables = () => {
                                             </code>
                                         </pre>
                                     </div>
-                                </CardBody>
-                            </Card>
+                                </CardBody> */}
+                            {/* </Card> */}
                         </Col>
 
 
                         <Col xl={6}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Bordered Tables" />
 
                                 <CardBody>
@@ -890,13 +890,13 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
                     </Row>
 
                     <Row >
                         <Col xl={6}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Tables Border Colors" />
                                 <CardBody>
                                     <p className="text-muted">Use <code>border-</code> class with color variation class to set table border color.</p>
@@ -1007,11 +1007,11 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
 
                         <Col xl={6}>
-                            <Card >
+                            {/* <Card >
                                 <PreviewCardHeader title="Tables Without Borders" />
                                 <CardBody>
                                     <p className="text-muted">Use <code>table-borderless</code> to set a table without borders.</p>
@@ -1093,13 +1093,13 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
                     </Row>
 
                     <Row>
                         <Col xl="6">
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Small Tables" />
 
                                 <CardBody>
@@ -1159,12 +1159,12 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
 
 
                         <Col xl={6}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Table Head" />
                                 <CardBody>
                                     <p className="text-muted">Use <code>table-light</code> or <code>table-dark</code> class to create &lt;thead&gt; appear light or dark.</p>
@@ -1230,13 +1230,13 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
                     </Row>
 
                     <Row>
                         <Col xl={6}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Table Foot" />
                                 <CardBody>
                                     <p className="text-muted">Add <code>&lt;tbody&gt;</code> attribute to group footer content in an HTML table.</p>
@@ -1292,11 +1292,11 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
 
                         <Col xl={6}>
-                            <div className="card">
+                            {/* <div className="card">
                                 <PreviewCardHeader title="Captions" />
                                 <CardBody>
                                     <p className="text-muted">You can also put the <code>&lt;caption&gt;</code> attribute on the top of the table with <code>caption-top</code> class.</p>
@@ -1334,9 +1334,9 @@ const BasicTables = () => {
                                                     </tr>
                                                 </tbody>
                                             </Table>
-                                        </div>
-                                    </div>
-                                    <div className="d-none code-view">
+                                        </div> */}
+                                    {/* </div> */}
+                                    {/* <div className="d-none code-view">
                                         <pre className="language-markup" style={{ "height": "275px" }}>
                                             <code>
                                                 <Captions />
@@ -1344,13 +1344,13 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </div>
+                            </div> */}
                         </Col>
                     </Row>
 
                     <Row >
                         <Col xl={6}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Table Nesting" />
 
                                 <CardBody>
@@ -1443,11 +1443,11 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </Col>
 
                         <Col xl={6}>
-                            <Card>
+                            {/* <Card>
                                 <PreviewCardHeader title="Variants" />
 
                                 <div className="card-body">
@@ -1531,13 +1531,13 @@ const BasicTables = () => {
                                         </pre>
                                     </div>
                                 </div>
-                            </Card>
+                            </Card> */}
                         </Col>
                     </Row>
 
                     <Row>
-                        <Col xl={12}>
-                            <Card>
+                        {/* <Col xl={12}> */}
+                            {/* <Card>
                                 <PreviewCardHeader title="Vertical Alignment" />
                                 <CardBody>
                                     <p className="text-muted">Table cells of <code>&lt;thead&gt;</code> are always vertical aligned to the bottom. Table cells in  <code>&lt;tbody&gt;</code> inherit their alignment from <code>&lt;table&gt;</code> and are aligned to the the top by default. Use the vertical align classes to re-align where needed.</p>
@@ -1584,7 +1584,7 @@ const BasicTables = () => {
                                     </div>
                                 </CardBody>
                             </Card>
-                        </Col>
+                        </Col> */}
                     </Row>
 
                     <Row>

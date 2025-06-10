@@ -62,8 +62,7 @@ const AccSwPage = () => {
               <Row className="job-list-row" id="companies-list">
                 {(companiesList || []).map((item, key) => (
                   <Col xxl={3} md={6} key={key}>
-                    <div onClick = {item.label == 'Xero' ? handleXeroAuth : undefined} 
-                    className="text-reset text-decoration-none cursor-pointer">
+                    <div className="text-reset text-decoration-none">
                       <Card className="card AccSwPage-card h-100">
                         <CardBody>
                           <div className="avatar-sm mx-auto">
@@ -83,9 +82,27 @@ const AccSwPage = () => {
                             <p className="text-muted industry-type">
                               {item.industry_type}
                             </p>
-                            <span className="stretched-link"></span>
 
                           </div>
+                            <div className="d-flex justify-content-center gap-2 mt-3">
+                              <button className="btn btn-sm btn-outline-success"
+                              onClick={item.label === 'Xero'? handleXeroAuth: undefined}
+                              >Connect/Reconnect</button>
+                              <button className="btn btn-sm btn-outline-danger">Disconnect</button>
+                              <button
+                                className="btn btn-sm btn-outline-primary"
+                                onClick={() => {
+                                  if (isConnected && item.label === "Xero") {
+                                    navigate("/data/tables/basic"); // 👈 
+                                  } else {
+                                    alert("❌ Please connect to Xero first.");
+                                  }
+                                }}
+                              >
+                                View Data
+                              </button>
+
+                            </div>
                         </CardBody>
                       </Card>
                       </div>
@@ -116,6 +133,13 @@ const AccSwPage = () => {
                           <h5 className="mt-3">{item.label}</h5>
                           <p className="text-muted small mb-0">{item.industry_type}</p>
                         </div>
+
+                        <div classname="d-flex justify-content-center gap-2 mt-3">
+                              <button className="btn btn-sm btn-outline-success">Connect/Reconnect</button>
+                              <button className="btn btn-sm btn-outline-danger">Disconnect</button>
+                              <button className="btn btn-sm btn-outline-primary">View Data</button>
+                            </div>
+
                       </CardBody>
                     </Card>
                   </Col>
